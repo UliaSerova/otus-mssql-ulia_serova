@@ -111,24 +111,23 @@ select top 5
 который осуществлял упаковку заказов (PackedByPersonID).
 */
 
-;with UnitPriceMax3_CTE(UnitPrice, StockItemID, InvoiceID)
+;with UnitPriceMax3_CTE(UnitPrice, StockItemID, InvoiceID, TopRank)
 as
 (
-    select top 3 
-	max(UnitPrice) as UnitPrice, 
+    select max(UnitPrice) as UnitPrice, 
 	StockItemID, 
-	min(InvoiceID) as InvoiceID
+	min(InvoiceID) as InvoiceID, 
+	RANK() OVER (ORDER BY max(UnitPrice) DESC) as TopRank
 	FROM Sales.InvoiceLines 
-	group by StockItemID, UnitPrice 
-	order by max(UnitPrice) desc
+	group by StockItemID, UnitPrice
 )
 select 
 	peple.FullName,
 	city.CityID,
 	city.CityName
-from UnitPriceMax3_CTE AS UPM
+from UnitPriceMax3_CTE AS UPM 
 	join  Warehouse.StockItems as i 
-	on UPM.StockItemID = I.StockItemID
+	on UPM.StockItemID = I.StockItemID and UPM.TopRank < 4
 	join Sales.Invoices  as inv
 	on inv.InvoiceID = UPM.InvoiceID
 	join Application.People as peple
