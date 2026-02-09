@@ -6,8 +6,8 @@ BEGIN TRANSACTION QUICKDBD
 -- Сотрудник оформляющий полис
 CREATE TABLE [Agent] (
     [AgentID] int  NOT NULL ,
-    [AgentName] varchar  NOT NULL ,
-    [Address] varchar  NULL ,
+    [AgentName] varchar(100) collate Cyrillic_General_CS_AI NOT NULL ,
+    [Address] varchar(100) collate Cyrillic_General_CS_AI  NULL ,
     CONSTRAINT [PK_Agent] PRIMARY KEY CLUSTERED (
         [AgentID] ASC
     )
@@ -16,8 +16,8 @@ CREATE TABLE [Agent] (
 -- Страхователь
 CREATE TABLE [Client] (
     [ClientID] int  NOT NULL ,
-    [ClientName] varchar  NOT NULL ,
-    [Address] varchar  NULL ,
+    [ClientName] varchar(100) collate Cyrillic_General_CS_AI NOT NULL ,
+    [Address] varchar(100) collate Cyrillic_General_CS_AI,
     [Phone] varchar  NULL ,
     CONSTRAINT [PK_Client] PRIMARY KEY CLUSTERED (
         [ClientID] ASC
@@ -27,8 +27,8 @@ CREATE TABLE [Client] (
 -- Тип полиса, например страхование авто
 CREATE TABLE [TypeOfPolicy] (
     [TypeID] int  NOT NULL ,
-    [TypeName] varchar  NOT NULL ,
-    [Description] varchar  NULL ,
+    [TypeName] varchar(100) collate Cyrillic_General_CS_AI  NOT NULL ,
+    [Description] varchar(1000) collate Cyrillic_General_CS_AI  NULL ,
     [Case] int  NOT NULL ,
     -- Тарифы по разным критериям
     [PricingPlans] varchar  NOT NULL ,
@@ -45,7 +45,7 @@ CREATE TABLE [Policy] (
     [Agent] int  NOT NULL ,
     [Client] int  NOT NULL ,
     -- все данные по полису
-    [PolicyData] varchar  NOT NULL ,
+    [PolicyData] varchar(max) collate Cyrillic_General_CS_AI  NOT NULL ,
     -- страховая премия
     [Premium] decimal  NOT NULL ,
     -- страховая сумма
@@ -58,7 +58,7 @@ CREATE TABLE [Policy] (
 -- статус полиса или стр. случая
 CREATE TABLE [Status] (
     [StatusID] int  NOT NULL ,
-    [StatusName] varchar  NOT NULL ,
+    [StatusName] varchar(100) collate Cyrillic_General_CS_AI  NOT NULL ,
     CONSTRAINT [PK_Status] PRIMARY KEY CLUSTERED (
         [StatusID] ASC
     )
@@ -67,7 +67,7 @@ CREATE TABLE [Status] (
 -- возможные страховые случаи
 CREATE TABLE [Case] (
     [CaseID] int  NOT NULL ,
-    [CaseName] varchar  NOT NULL ,
+    [CaseName] varchar(100) collate Cyrillic_General_CS_AI  NOT NULL ,
     CONSTRAINT [PK_Case] PRIMARY KEY CLUSTERED (
         [CaseID] ASC
     )
@@ -78,7 +78,7 @@ CREATE TABLE [InsuranceCases] (
     [InsuranceCaseID] int  NOT NULL ,
     [CaseID] int  NOT NULL ,
     [PolicyID] int  NOT NULL ,
-    [Description] varchar  NULL ,
+    [Description] varchar(max) collate Cyrillic_General_CS_AI  NULL ,
     [Status] int  NOT NULL ,
     CONSTRAINT [PK_InsuranceCases] PRIMARY KEY CLUSTERED (
         [InsuranceCaseID] ASC
