@@ -1,0 +1,6 @@
+C:\Users\Юлия\source\repos\SQLValidator\Validator\bin\Debug\Validator.dll
+C:\Users\Юлия\source\repos\SQLValidator\Validator\bin\Debug\Validator.pdb
+C:\Users\Юлия\source\repos\SQLValidator\Validator\obj\Debug\Validator.csproj.AssemblyReference.cache
+C:\Users\Юлия\source\repos\SQLValidator\Validator\obj\Debug\Validator.csproj.CoreCompileInputs.cache
+C:\Users\Юлия\source\repos\SQLValidator\Validator\obj\Debug\Validator.dll
+C:\Users\Юлия\source\repos\SQLValidator\Validator\obj\Debug\Validator.pdb
