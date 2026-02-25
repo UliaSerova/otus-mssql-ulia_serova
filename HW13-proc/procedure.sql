@@ -29,7 +29,7 @@ SELECT dbo.GetMaxCostomerSumFn() AS CostomerId
 /* 2. Написать хранимую процедуру с входящим параметром СustomerID, выводящую сумму покупки по этому клиенту. */
 CREATE OR ALTER PROCEDURE Sales.GetSumByCostomer
 (
-    @СustomerID int = NULL
+    @CustomerID int = NULL
 )
 AS
 BEGIN
@@ -37,7 +37,7 @@ BEGIN
 		sum(il.ExtendedPrice)
     from Sales.Invoices  as i
         join Sales.InvoiceLines as il 
-            on i.InvoiceID = il.InvoiceID and i.CustomerID = @СustomerID
+            on i.InvoiceID = il.InvoiceID and i.CustomerID = @CustomerID
 END
 GO
 
