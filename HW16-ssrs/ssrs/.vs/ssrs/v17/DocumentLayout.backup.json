@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u042E\u043B\u0438\u044F\\Documents\\GitHub\\otus-mssql-ulia_serova\\HW16-ssrs\\ssrs\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{99EA7652-3ADD-D658-E40B-A5B85C53A795}|ssrs\\ssrs.rptproj|C:\\Users\\\u042E\u043B\u0438\u044F\\Documents\\GitHub\\otus-mssql-ulia_serova\\HW16-ssrs\\ssrs\\ssrs\\Report1.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{99EA7652-3ADD-D658-E40B-A5B85C53A795}|ssrs\\ssrs.rptproj|solutionrelative:ssrs\\Report1.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Report1.rdl [\u041F\u0440\u043E\u0435\u043A\u0442]",
+              "DocumentMoniker": "C:\\Users\\\u042E\u043B\u0438\u044F\\Documents\\GitHub\\otus-mssql-ulia_serova\\HW16-ssrs\\ssrs\\ssrs\\Report1.rdl",
+              "RelativeDocumentMoniker": "ssrs\\Report1.rdl",
+              "ToolTip": "C:\\Users\\\u042E\u043B\u0438\u044F\\Documents\\GitHub\\otus-mssql-ulia_serova\\HW16-ssrs\\ssrs\\ssrs\\Report1.rdl [\u041F\u0440\u043E\u0435\u043A\u0442]",
+              "RelativeToolTip": "ssrs\\Report1.rdl [\u041F\u0440\u043E\u0435\u043A\u0442]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-17T17:37:58.545Z",
+              "EditorCaption": " [\u041F\u0440\u043E\u0435\u043A\u0442]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
