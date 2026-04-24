@@ -1,4 +1,13 @@
+// Время работы SQL Server:
+//  Время ЦП = 528 мс, затраченное время = 392 мс.
+// после оптимизации
+//Время работы SQL Server:
+// Время ЦП = 235 мс, затраченное время = 269 мс.
+// самое большое количество чтений было у Invoices - 
+// Таблица "Invoices". Сканирований 462, логических операций чтения 162205 
+// после Таблица "Invoices". Сканирований 1, логических операций чтения 226
 // с добавлением индексов время выполнения снизилось в 2 раза
+
 create index OrderID_Invoices on Sales.Invoices(InvoiceID, OrderID, CustomerID, BillToCustomerID, InvoiceDate)
 
 create NONCLUSTERED index OrderLines 
