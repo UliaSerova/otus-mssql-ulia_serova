@@ -10,10 +10,10 @@
 
 create index OrderID_Invoices on Sales.Invoices(InvoiceID, OrderID, CustomerID, BillToCustomerID, InvoiceDate)
 
-create NONCLUSTERED index OrderLines 
-on Sales.OrderLines (OrderLineID) INCLUDE(OrderID, StockItemID, UnitPrice, Quantity)
+create NONCLUSTERED index OrderLinesOrderID
+on Sales.OrderLines (OrderID) INCLUDE(StockItemID, UnitPrice, Quantity)
 
-create index InvoiceID_CustomerTransactions on Sales.CustomerTransactions(CustomerTransactionID , InvoiceID)
+create index InvoiceID_CustomerTransactions on Sales.CustomerTransactions(InvoiceID) include (CustomerTransactionID)
 
 SET STATISTICS io, time on;
 
