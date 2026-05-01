@@ -129,3 +129,19 @@ CREATE INDEX PolicyId ON Policy (PolicyID);
 
 
 COMMIT TRANSACTION QUICKDBD
+
+CREATE OR ALTER PROCEDURE [dbo].[GetFullPolices]
+AS
+BEGIN
+   select 
+        p.PolicyID,
+        (SELECT TypeName FROM dbo.TypeOfPolicy WHERE TypeOfPolicy = TypeID) AS TypeOfPolicyName,
+		(SELECT StatusName FROM dbo.Status WHERE p.Status = StatusID) AS StatusName,
+		(SELECT AgentName FROM dbo.Agent WHERE p.Agent = AgentID) AS AgentName,
+		(SELECT ClientName FROM dbo.Client WHERE p.Client = ClientID) AS ClientName,
+        p.Premium,
+        p.Sum,
+        p.CreationDate
+    from dbo.Policy  as p
+        
+END
