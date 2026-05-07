@@ -9,8 +9,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Agent](
 	[AgentID] INT IDENTITY(1, 1) PRIMARY KEY,
-	[AgentName] [varchar](100) NOT NULL,
-	[Address] [varchar](100) NULL)
+	[AgentName] [nvarchar](100) NOT NULL,
+	[Address] [nvarchar](100) NULL)
 GO
 
 SET ANSI_NULLS ON
@@ -19,7 +19,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Case](
 	[CaseID] INT IDENTITY(1, 1) PRIMARY KEY,
-	[CaseName] [varchar](100) NOT NULL)
+	[CaseName] [nvarchar](100) NOT NULL)
 GO
 
 SET ANSI_NULLS ON
@@ -28,9 +28,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Client](
 	[ClientID] INT IDENTITY(1, 1) PRIMARY KEY,
-	[ClientName] [varchar](100) NOT NULL,
-	[Address] [varchar](100) NULL,
-	[Phone] [varchar](20) NULL)
+	[ClientName] [nvarchar](100) NOT NULL,
+	[Address] [nvarchar](100) NULL,
+	[Phone] [nvarchar](20) NULL)
 GO
 
 SET ANSI_NULLS ON
@@ -41,7 +41,7 @@ CREATE TABLE [dbo].[InsuranceCases](
 	[InsuranceCaseID] INT IDENTITY(1, 1) PRIMARY KEY,
 	[CaseID] [int] NOT NULL,
 	[PolicyID] [int] NOT NULL,
-	[Description] [varchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
 	[StatusID] [int] NOT NULL,
 	[CreationDate] [date] NULL,
 	[Sum] [decimal](18, 2))
@@ -57,7 +57,7 @@ CREATE TABLE [dbo].[Policy](
 	[StatusID] [int] NOT NULL,
 	[AgentID] [int] NOT NULL,
 	[ClientID] [int] NOT NULL,
-	[PolicyData] [varchar](max) NOT NULL,
+	[PolicyData] [nvarchar](max) NOT NULL,
 	[Premium] [decimal](18, 2) NOT NULL,
 	[Sum] [decimal](18, 2) NOT NULL,
 	[CreationDate] [date] NULL,
@@ -72,7 +72,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Status](
 	[StatusID] INT IDENTITY(1, 1) PRIMARY KEY,
-	[StatusName] [varchar](100) NOT NULL)
+	[StatusName] [nvarchar](100) NOT NULL)
 GO
 
 SET ANSI_NULLS ON
@@ -81,8 +81,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TypeOfPolicy](
 	[TypeID] INT IDENTITY(1, 1) PRIMARY KEY,
-	[TypeName] [varchar](100) NOT NULL,
-	[Description] [varchar](1000) NULL,
+	[TypeName] [nvarchar](100) NOT NULL,
+	[Description] [nvarchar](1000) NULL,
 	[CaseID] [int] NOT NULL,
 	[PricingPlans] [nchar](100) NULL)
  
@@ -142,22 +142,6 @@ INSERT [dbo].[TypeOfPolicy] ([TypeName], [Description], [CaseID], [PricingPlans]
 	( N'Туристическое страхование', N'Страхование для путешественников за рубеж и по России', 7, N'Эконом: 50 руб./день, Стандарт: 100 руб./день, Премиум: 200 руб./день ')
 GO
 
--- для получения данных по id агента
-CREATE NONCLUSTERED INDEX [FK_Agents_AgentID_AgentName] 
-ON [Insuranse].[dbo].[Agent]
-(
-	[AgentID] ASC
-)
-INCLUDE(AgentName);
-GO
-
-CREATE NONCLUSTERED INDEX [FK_Clients_ClientID_ClientName] 
-ON [Insuranse].[dbo].[Client]
-(
-	[ClientID] ASC
-)
-INCLUDE(ClientName);
-GO
 
 CREATE FULLTEXT CATALOG PolicyCatalog
      WITH ACCENT_SENSITIVITY = ON
